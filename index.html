@@ -11,6 +11,23 @@
 
 <body>
     <div class="main">
+        <div class="info-popup" id="popUp">
+            <img src="./imgs/bb-8-svgrepo-com.svg" alt="General Bot">
+            <h2>Space Alert</h2>
+            <p>Hey there commander! This is your sergent speaking &#128511; </p>
+            <p>Below are some tips in getting more points (SEI) &#128176; </p>
+            <ul>
+                <li>You can earn points by killing space aliens &#128128; </li>
+                <li>You can earn points by completing tasks &#128203; </li>
+                <li>You can earn points by inviting your friends to play together with you &#129309; </li>
+                <li>Don't forget to check the leaderboard every week to see how far you've come in your journey
+                    commander! &#128509; </li>
+                <li>The top 10 players on the leaderboard would be credited SEI so do not fail to collect as many points
+                    as you can commander! &#129297; </li>
+            </ul>
+            <button type="button" class="roger" onclick="closePopup()"><a href="#">Roger General!</a></button>
+        </div>
+
         <div class="hero-img">
             <img src="./imgs/bb-8-svgrepo-com.svg" alt="hero image">
         </div>
@@ -22,7 +39,7 @@
             </div>
         </div>
         <div class="btn-container">
-            <button class="start" id="startButton" disabled><a href="#">Start Game</a></button>
+            <button type="button" class="start" id="startButton" onclick="openPopup()" disabled>Start Game</button>
         </div>
     </div>
     <script src="./backend.js"></script>

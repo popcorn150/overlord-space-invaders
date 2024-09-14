@@ -17,9 +17,12 @@ function animateProgressBar(progressBar, duration){
     const interval = setInterval(() => {
         if (value >= 100) {
             clearInterval(interval)
-            
+
             // Enable the start button when progress is 100%
             startButton.disabled = false;
+
+            // Add pulse animation to button
+            startButton.classList.add('pulse');
         } else {
             value++;
             updateProgressBar(progressBar, value);
@@ -32,3 +35,13 @@ const pgBar = document.querySelector(".progress");
 
 // Start the animation for 5 seconds (5000 milliseconds)
 animateProgressBar(pgBar, 5000);
+
+let popup = document.getElementById("popUp");
+
+function openPopup(){
+    popup.classList.add("open-popup");
+}
+
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
