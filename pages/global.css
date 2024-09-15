@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Share Tech Mono", monospace;
+}
+
+:root {
+    --primary-color: #00000c;
+    --secondary-color: #f40d30;
+    --tetiary-color: #422474;
+}
+
+body {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+}
+
+.main {
+    margin-top: 50px;
+    align-content: center;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    width: 100px;
+}
+
+
+.main h1,
+p {
+    text-align: center;
+    padding: 0.5em;
+    color: var(--secondary-color);
+}
+
+.tasks {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    margin: 7px;
+}
+
+.task-btn {
+    border: none;
+    outline: none;
+    padding: 1.3em;
+    width: 30em;
+
+    margin: 5px;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.task-btn a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.task-btn-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.task-btn-content img {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.icon {
+    padding-right: 5px;
+}
+
+.task-title {
+    font-size: 1.2em;
+    padding: 10px 5px 0px 5px;
+}
+
+.task-subtitle p {
+    text-align: start;
+    align-self: center;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.visit-task {
+    display: flex;
+    padding-left: 10px;
+}
+
+.visit-task img {
+    align-self: center;
+    width: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 28.3em;
+    margin: 1em;
+    padding: 0.5em;
+    background-color: rgb(51, 50, 50);
+    border-radius: 1.5rem;
+}
+
+.tabs button {
+    display: block;
+    padding: 0.7em;
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.tabs button:hover {
+    background-color: var(--tetiary-color);
+    border-radius: 1em;
+}
+
+
+.tabs button img {
+    justify-content: center;
+    width: 30px;
+    display: inline-block;
+}
+
+.tabs button a {
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
