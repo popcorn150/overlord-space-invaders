@@ -169,6 +169,7 @@ p {
 .team-list-container {
     padding: 1.3em;
     width: 30em;
+    height: 100%;
     margin: 10px;
     border-radius: 1em;
     background-color: rgb(180, 175, 175);
