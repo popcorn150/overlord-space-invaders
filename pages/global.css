@@ -55,7 +55,6 @@ p {
     outline: none;
     padding: 1.3em;
     width: 30em;
-
     margin: 5px;
     border-radius: 1em;
     cursor: pointer;
@@ -141,4 +140,36 @@ p {
     text-decoration: none;
     text-align: center;
     color: white;
+}
+
+.invite-btn {
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0 5px 0;
+    cursor: pointer;
+    margin: 1em;
+}
+
+.invite-btn p {
+    font-weight: 900;
+}
+
+.invite-btn span img {
+    width: 30px;
+    padding: 5px;
+}
+
+.team-list h3 {
+    color: var(--secondary-color);
+}
+
+.team-list-container {
+    padding: 1.3em;
+    width: 30em;
+    margin: 10px;
+    border-radius: 1em;
+    background-color: rgb(180, 175, 175);
 }
