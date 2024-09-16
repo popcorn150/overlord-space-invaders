@@ -102,6 +102,26 @@ p {
     width: 20px;
 }
 
+#game-board {
+    background-color: black;
+    margin: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .tabs {
     display: flex;
     gap: 5px;
