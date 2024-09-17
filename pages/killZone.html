@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="global.css">
     <title>Overlord Space Invaders</title>
 </head>
+
 <body>
-    <div class="main">
+    <div class="main" id="content">
         <h1>Kill Zone &#128128;</h1>
         <p>Get ready to rumble commander!</p>
 
         <canvas id="game-board"></canvas>
+
+        <div class="tabs" id="mainTab">
+            <button onclick="loadPage('killZone.html')" disabled
+                style="background-color: var(--tetiary-color); border-radius: 1em;">
+                <div><img src="/imgs/battle.svg" alt="battle tab"></div>
+                KILL ZONE
+            </button>
+            <button onclick="loadPage('taskZone.html')">
+                <div><img src="/imgs/lists.svg" alt="tasks tab"></div>
+                TASK ZONE
+            </button>
+            <button onclick="loadPage('inviteZone.html')">
+                <div><img src="/imgs/invite.svg" alt="invite tab"></div>
+                INVITE ZONE
+            </button>
+            <button onclick="loadPage('leaderboard.html')">
+                <div><img src="/imgs/leaderboard.svg" alt="leaderboard tab"></div>
+                LEADERBOARD
+            </button>
+        </div>
     </div>
 
     <script src="/backend.js"></script>
 </body>
+
 </html>

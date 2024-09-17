@@ -107,20 +107,9 @@ p {
     margin: 1em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.mainTab {
+    visibility: hidden;
+}
 
 .tabs {
     display: flex;

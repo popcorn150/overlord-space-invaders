@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="main" id="content">
         <div class="img-container">
             <img src="/imgs/leadboard.svg" alt="lead board">
         </div>
@@ -24,32 +24,27 @@
         </div>
 
         <div class="tabs">
-            <button>
-                <a href="/pages/killZone.html">
-                    <div><img src="/imgs/battle.svg" alt="battle tab"></div>
-                    KILL ZONE
-                </a>
+            <button onclick="loadPage('/pages/killZone.html')">
+                <div><img src="/imgs/battle.svg" alt="battle tab"></div>
+                KILL ZONE
             </button>
-            <button>
-                <a href="/pages/taskZone.html">
-                    <div><img src="/imgs/lists.svg" alt="tasks tab"></div>
-                    TASK ZONE
-                </a>
+            <button onclick="loadPage('taskZone.html')">
+                <div><img src="/imgs/lists.svg" alt="tasks tab"></div>
+                TASK ZONE
             </button>
-            <button>
-                <a href="/pages/inviteZone.html">
-                    <div><img src="/imgs/invite.svg" alt="invite tab"></div>
-                    INVITE ZONE
-                </a>
+            <button onclick="loadPage('inviteZone.html')">
+                <div><img src="/imgs/invite.svg" alt="invite tab"></div>
+                INVITE ZONE
             </button>
-            <button disabled style="background-color: var(--tetiary-color); border-radius: 1em;">
-                <a href="/pages/leaderboard.html">
-                    <div><img src="/imgs/leaderboard.svg" alt="leaderboard tab"></div>
-                    LEADERBOARD
-                </a>
+            <button onclick="loadPage('leaderboard.html')" disabled
+                style="background-color: var(--tetiary-color); border-radius: 1em;">
+                <div><img src="/imgs/leaderboard.svg" alt="leaderboard tab"></div>
+                LEADERBOARD
             </button>
         </div>
     </div>
+
+    <script src="/backend.js"></script>
 </body>
 
 </html>

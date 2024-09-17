@@ -41,11 +41,16 @@ let alienVelocityX = 1.3; //alien moving speed
 let bulletArray = [];
 let bulletVelocityY = -10; //bullet moving speed
 
+let score = 0;
+let gameOver = false;
+
 window.onload = function () {
     board = document.getElementById("game-board");
+    let mainTab = document.getElementById("mainTab");
+
 
     board.width = boardWidth;
-    board.height = boardHeight
+    board.height = boardHeight;
     context = board.getContext("2d"); // used for drawing on the board
 
     //load hero
@@ -64,13 +69,17 @@ window.onload = function () {
 
     requestAnimationFrame(update);
 
-    // document.addEventListener("keydown", moveHero);
-    board.addEventListener("touches", handleTap);
+    mainTab.classList.add("mainTab");
+    board.addEventListener("touchstart", handleTap);
     document.addEventListener("keyup", shoot);
 }
 
 function update() {
     requestAnimationFrame(update);
+
+    if (gameOver) {
+        return;
+    }
 
     //clear game board after ship movement
     context.clearRect(0, 0, board.width, board.height);
@@ -89,6 +98,7 @@ function update() {
     //draw aliens
     for (let i = 0; i < alienArray.length; i++) {
         let alien = alienArray[i];
+        let mainTab = document.getElementById("mainTab");
         if (alien.alive) {
             alien.x += alienVelocityX;
 
@@ -105,6 +115,11 @@ function update() {
             context.drawImage(
                 alienImg, alien.x, alien.y, alien.width, alien.height
             );
+
+            if(alien.y >= hero.y){
+                gameOver = true;
+                mainTab.classList.remove("mainTab");
+            }
         }
     }
 
@@ -113,13 +128,40 @@ function update() {
     for (let i = 0; i < bulletArray.length; i++) {
         let bullet = bulletArray[i];
         bullet.y += bulletVelocityY;
-        context.fillStyle = "white";
+        context.fillStyle = "red";
         context.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+
+        //bullet collision with aliens
+        for (let j = 0; j < alienArray.length; j++) {
+            let alien = alienArray[j];
+            if (!bullet.used && alien.alive && detectCollision(bullet, alien)) {
+                bullet.used = true;
+                alien.alive = false;
+                alienCount--;
+                score += 100;
+            }
+        }
     }
 
+    //clear bullets
     while (bulletArray.length > 0 && (bulletArray[0].used || bulletArray[0].y < 0)) {
         bulletArray.shift(); //removes the first element of the array
     }
+
+    //next level
+    if (alienCount == 0) {
+        //increase the number of aliens in columns and rows by one
+        alienColumns = Math.min(alienColumns + 1, columns / 2 - 2); //cap @ 16 / 2 - 2 = 6
+        alienRows = Math.min(alienRows + 1, rows - 4);//alien don't exceedd up to 4 rows of the canva (cap @ 16 - 4 = 12)
+        alienVelocityX += 0.2; //increase alien's speed on each new level
+        alienArray = [];
+        bulletArray = [];
+        createAliens();
+    }
+
+    context.fillStyle = "red";
+    context.font = "20px Share Tech Mono";
+    context.fillText(score, 5, 20);
 }
 
 function createAliens() {
@@ -140,6 +182,11 @@ function createAliens() {
 }
 
 function shoot(e) {
+
+    if (gameOver) {
+        return;
+    }
+
     if (e.code == "Space") {
         //shoot
         let bullet = {
@@ -212,4 +259,13 @@ function openPopup() {
 
 function closePopup() {
     popup.classList.remove("open-popup");
+}
+
+function loadPage(page){
+    fetch(page)
+    .then(Response => Response.text())
+    .then(data => {
+        document.getElementById("content").innerHTML = data;
+    })
+    .catch(error => console.log('Error loading page:', error));
 }
