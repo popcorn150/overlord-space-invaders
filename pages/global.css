@@ -43,6 +43,70 @@ p {
     color: var(--secondary-color);
 }
 
+.alert {
+    display: none;
+    background: #fff;
+    padding: 20px 40px;
+    min-width: 420px;
+    position: absolute;
+    overflow: hidden;
+    cursor: default;
+    right: 0px;
+    top: 10px;
+    border-radius: 4px;
+    border-left: 8px solid var(--secondary-color);
+}
+
+.alert.show {
+    animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+    0% {
+        transform: translateX(100%);
+    }
+    40% {
+        transform: translateX(-10%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
+.alert .rocket-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+}
+
+.alert .msg {
+    padding: 0 20px;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+
+.alert .close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--secondary-color);
+    padding: 20px 18px;
+}
+
+.close-btn .close-alert {
+    color: #740717;
+    font-size: 22px;
+    line-height: 40px;
+
+}
+
 .tasks {
     display: grid;
     width: 100%;
@@ -130,6 +194,9 @@ p {
     border: none;
     background: none;
     cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    color: white;
 }
 
 .tabs button:hover {
@@ -142,13 +209,6 @@ p {
     justify-content: center;
     width: 30px;
     display: inline-block;
-}
-
-.tabs button a {
-    font-size: 15px;
-    text-decoration: none;
-    text-align: center;
-    color: white;
 }
 
 .invite-btn {
@@ -169,6 +229,10 @@ p {
 .invite-btn span img {
     width: 30px;
     padding: 5px;
+}
+
+.invite-btn:active {
+    transform: scale(0.95);
 }
 
 .team-list h3 {

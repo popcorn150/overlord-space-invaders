@@ -116,7 +116,7 @@ function update() {
                 alienImg, alien.x, alien.y, alien.width, alien.height
             );
 
-            if(alien.y >= hero.y){
+            if (alien.y >= hero.y) {
                 gameOver = true;
                 mainTab.classList.remove("mainTab");
             }
@@ -261,11 +261,17 @@ function closePopup() {
     popup.classList.remove("open-popup");
 }
 
-function loadPage(page){
+// let slideIn = document.querySelector("alert");
+
+// function copyInvite() {
+//     slideIn.classList.add("show");
+// }
+
+function loadPage(page) {
     fetch(page)
-    .then(Response => Response.text())
-    .then(data => {
-        document.getElementById("content").innerHTML = data;
-    })
-    .catch(error => console.log('Error loading page:', error));
+        .then(Response => Response.text())
+        .then(data => {
+            document.getElementById("content").innerHTML = data;
+        })
+        .catch(error => console.log('Error loading page:', error));
 }
