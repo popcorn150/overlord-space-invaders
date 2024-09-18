@@ -44,7 +44,7 @@ p {
 }
 
 .alert {
-    display: none;
+    /* display: none; */
     background: #fff;
     padding: 20px 40px;
     min-width: 420px;
@@ -53,8 +53,15 @@ p {
     cursor: default;
     right: 0px;
     top: 10px;
+    opacity: 0;
+    pointer-events: none;
     border-radius: 4px;
     border-left: 8px solid var(--secondary-color);
+}
+
+.alert.showAlert {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .alert.show {
@@ -73,6 +80,25 @@ p {
     }
     100% {
         transform: translateX(-10px);
+    }
+}
+
+.alert.hide {
+    animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+    0% {
+        transform: translateX(-10px);
+    }
+    40% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
 
@@ -241,9 +267,28 @@ p {
 
 .team-list-container {
     padding: 1.3em;
-    width: 30em;
     height: 100%;
     margin: 10px;
-    border-radius: 1em;
+    border-radius: 0.7em;
     background-color: rgb(180, 175, 175);
+}
+
+/**Media queries */
+@media (max-width: 767px) {
+    .main p {
+        font-size: 0.9em;
+    }
+
+    .task-subtitle {
+        font-weight: 700;
+        font-size: 1.2em;
+    }
+
+    .invite-btn p {
+        font-size: 1.2em;
+    }
+
+    .team-list h3 {
+        padding-left: 1em;
+    }
 }

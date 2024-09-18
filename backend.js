@@ -261,11 +261,66 @@ function closePopup() {
     popup.classList.remove("open-popup");
 }
 
-// let slideIn = document.querySelector("alert");
+function openAlert() {
 
-// function copyInvite() {
-//     slideIn.classList.add("show");
-// }
+    //assign the generateRandomID function to a variable
+    let inviteID = generateRandomID();
+
+    //copy to clipboard function
+    copyToClipboard(inviteID);
+
+    let alert = document.getElementById("showAlert");
+    if (alert) {
+        alert.classList.remove("hide");
+        alert.classList.add("show");
+        alert.classList.add("showAlert");
+        setTimeout(function () {
+            alert.classList.add("hide");
+            alert.classList.remove("show");
+        }, 5000); //automatically hide alert after 5 seconds
+    } else {
+        console.log("Element with ID 'showAlert' not found.")
+    }
+};
+
+//generate random invite id
+function generateRandomID() {
+    //customazie the ID length and characters as needed
+    let length = 10;
+    let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let randomID = "";
+
+    for (let i = 0; i < length; i++) {
+        randomID += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return randomID;
+};
+
+//copy to clipboard automatically
+function copyToClipboard(text) {
+    //create a temporary input element
+    let tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.append(tempInput);
+
+    //select the text and copy it
+    tempInput.select()
+    tempInput.setSelectionRange(0, 99999); //for mobile devices
+    document.execCommand("copy");
+
+    //remove the temporary input element
+    document.body.removeChild(tempInput);
+};
+
+function closeAlert() {
+    let alert = document.getElementById("showAlert");
+    if (alert) {
+        alert.classList.add("hide");
+        alert.classList.remove("show");
+    } else {
+        console.log("Element with ID 'showAlert' not found.")
+    }
+};
 
 function loadPage(page) {
     fetch(page)
