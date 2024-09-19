@@ -77,19 +77,12 @@ body {
     cursor: pointer;
     padding: 10px 20px;
     font-size: 1.2em;
-    font-weight: 700;
+    font-weight: 800;
     border: none;
     outline: none;
     border-radius: 5px;
     color: var(--primary-color);
     background: var(--tetiary-color);
-}
-
-.roger a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-size: 1.2em;
-    font-weight: 900;
 }
 
 @keyframes pulse {
@@ -129,6 +122,13 @@ button:disabled {
     z-index: 1;
 }
 
+@media (max-width: 576px) {
+    .info-popup {
+        width: 350px;
+        padding: 0 30px 20px;
+    }
+}
+
 .open-popup {
     visibility: visible;
     top: 53%;
@@ -158,4 +158,16 @@ li {
 
 .roger {
     margin-top: 10px;
+}
+
+#countdown {
+    font-size: 5rem;
+    font-weight: bolder;
+    display: none;
+    text-align: center;
+    color: var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

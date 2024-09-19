@@ -44,7 +44,6 @@ p {
 }
 
 .alert {
-    /* display: none; */
     background: #fff;
     padding: 20px 40px;
     min-width: 420px;
@@ -57,6 +56,13 @@ p {
     pointer-events: none;
     border-radius: 4px;
     border-left: 8px solid var(--secondary-color);
+}
+
+/**Media queries */
+@media (max-width: 576px) {
+    .alert {
+        min-width: 350px;
+    }
 }
 
 .alert.showAlert {
@@ -72,12 +78,15 @@ p {
     0% {
         transform: translateX(100%);
     }
+
     40% {
         transform: translateX(-10%);
     }
+
     80% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-10px);
     }
@@ -91,12 +100,15 @@ p {
     0% {
         transform: translateX(-10px);
     }
+
     40% {
         transform: translateX(0%);
     }
+
     80% {
         transform: translateX(-10%);
     }
+
     100% {
         transform: translateX(100%);
     }
@@ -135,7 +147,6 @@ p {
 
 .tasks {
     display: grid;
-    width: 100%;
     justify-content: center;
     margin: 7px;
 }
@@ -144,10 +155,28 @@ p {
     border: none;
     outline: none;
     padding: 1.3em;
-    width: 30em;
     margin: 5px;
     border-radius: 1em;
     cursor: pointer;
+}
+
+/**Media queries */
+@media (max-width: 576px) {
+    .task-btn {
+        padding: 0.8em;
+    }
+
+    .icon {
+        padding-right: 3px;
+    }
+
+    .task-title h3 {
+        font-size: 1em;
+    }
+
+    .task-btn-content img {
+        width: 50px;
+    }
 }
 
 .task-btn a {
@@ -182,19 +211,24 @@ p {
     font-size: 1em;
 }
 
-.visit-task {
-    display: flex;
-    padding-left: 10px;
-}
-
-.visit-task img {
-    align-self: center;
-    width: 20px;
-}
-
 #game-board {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     background-color: black;
     margin: 1em;
+}
+
+/** Media query */
+@media (max-width: 576px) {
+    #game-board {
+        width: 450px;
+        margin: 5em;
+    }
+
+    .tabs {
+        margin: 1em auto;
+    }
 }
 
 .mainTab {
@@ -203,11 +237,10 @@ p {
 
 .tabs {
     display: flex;
+    justify-content: center;
     gap: 5px;
-    position: fixed;
-    bottom: 0;
-    left: 28.3em;
-    margin: 1em;
+    margin: 3em auto;
+    max-width: max-content;
     padding: 0.5em;
     background-color: rgb(51, 50, 50);
     border-radius: 1.5rem;
@@ -271,24 +304,4 @@ p {
     margin: 10px;
     border-radius: 0.7em;
     background-color: rgb(180, 175, 175);
-}
-
-/**Media queries */
-@media (max-width: 767px) {
-    .main p {
-        font-size: 0.9em;
-    }
-
-    .task-subtitle {
-        font-weight: 700;
-        font-size: 1.2em;
-    }
-
-    .invite-btn p {
-        font-size: 1.2em;
-    }
-
-    .team-list h3 {
-        padding-left: 1em;
-    }
 }

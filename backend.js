@@ -1,3 +1,6 @@
+// Import the Firebase setup
+import { database, ref, push, set } from "./db.js";
+
 //board 
 let tileSize = 32;
 let rows = 16;
@@ -161,7 +164,7 @@ function update() {
 
     context.fillStyle = "red";
     context.font = "20px Share Tech Mono";
-    context.fillText(score, 5, 20);
+    context.fillText(score, 20, 30);
 }
 
 function createAliens() {
@@ -210,55 +213,6 @@ function detectCollision(a, b) {
         a.x + a.width > b.x && //a's top right corner passes b's top left corner
         a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
         a.y + a.height > b.y; //a's bottom left corner passes b's top left corner
-}
-
-
-// Function to update the progress bar
-function updateProgressBar(progressBar, value) {
-    value = Math.round(value);
-    progressBar.querySelector(".progress__fill").style.width = `${value}%`;
-    progressBar.querySelector(".progress__text").textContent = `${value}%`;
-}
-
-// Function to animate the progress bar from 0 to 100
-function animateProgressBar(progressBar, duration) {
-    let value = 0
-    const internalDuration = duration / 100; // Time to increment each percentage
-
-    // Disable the start button initially
-    const startButton = document.getElementById('startButton');
-    startButton.disabled = true;
-
-    const interval = setInterval(() => {
-        if (value >= 100) {
-            clearInterval(interval)
-
-            // Enable the start button when progress is 100%
-            startButton.disabled = false;
-
-            // Add pulse animation to button
-            startButton.classList.add('pulse');
-        } else {
-            value++;
-            updateProgressBar(progressBar, value);
-        }
-    }, internalDuration);
-}
-
-// Select the progress bar element
-const pgBar = document.querySelector(".progress");
-
-// Start the animation for 5 seconds (5000 milliseconds)
-animateProgressBar(pgBar, 5000);
-
-let popup = document.getElementById("popUp");
-
-function openPopup() {
-    popup.classList.add("open-popup");
-}
-
-function closePopup() {
-    popup.classList.remove("open-popup");
 }
 
 function openAlert() {
@@ -322,11 +276,20 @@ function closeAlert() {
     }
 };
 
-function loadPage(page) {
-    fetch(page)
-        .then(Response => Response.text())
-        .then(data => {
-            document.getElementById("content").innerHTML = data;
-        })
-        .catch(error => console.log('Error loading page:', error));
-}
+// function loadPage(page) {
+//     fetch(page)
+//         .then(Response => Response.text())
+//         .then(data => {
+//             document.getElementById("content").innerHTML = data;
+//         })
+//         .catch(error => console.log('Error loading page:', error));
+// }
+
+
+
+// Check for existing player ID or create a new one
+// let playerId = localStorage.getItem('playerId');
+// if (!playerId) {
+//     playerId = 'player_' + Math.random().toString(36).substring(2, 9);
+//     localStorage.setItem('playerId', playerId);
+// }
