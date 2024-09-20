@@ -1,6 +1,3 @@
-// Import the Firebase setup
-import { database, ref, push, set } from "./db.js";
-
 //board 
 let tileSize = 32;
 let rows = 16;
@@ -74,8 +71,8 @@ window.onload = function () {
 
     mainTab.classList.add("mainTab");
     board.addEventListener("touchstart", handleTap);
-    document.addEventListener("keyup", shoot);
-}
+    document.addEventListener("keydown", shoot);
+};
 
 function update() {
     requestAnimationFrame(update);
@@ -215,12 +212,9 @@ function detectCollision(a, b) {
         a.y + a.height > b.y; //a's bottom left corner passes b's top left corner
 }
 
-function openAlert() {
-
-    //assign the generateRandomID function to a variable
+document.getElementById("openAlert").addEventListener("click", function () {
     let inviteID = generateRandomID();
 
-    //copy to clipboard function
     copyToClipboard(inviteID);
 
     let alert = document.getElementById("showAlert");
@@ -231,11 +225,21 @@ function openAlert() {
         setTimeout(function () {
             alert.classList.add("hide");
             alert.classList.remove("show");
-        }, 5000); //automatically hide alert after 5 seconds
+        }, 5000);
     } else {
         console.log("Element with ID 'showAlert' not found.")
     }
-};
+});
+
+document.getElementById("closeAlert").addEventListener("click", function () {
+    let alert = document.getElementById("showAlert");
+    if (alert) {
+        alert.classList.add("hide");
+        alert.classList.remove("show");
+    } else {
+        console.log("Element with ID 'showAlert' not found.")
+    }
+});
 
 //generate random invite id
 function generateRandomID() {
@@ -266,25 +270,15 @@ function copyToClipboard(text) {
     document.body.removeChild(tempInput);
 };
 
-function closeAlert() {
-    let alert = document.getElementById("showAlert");
-    if (alert) {
-        alert.classList.add("hide");
-        alert.classList.remove("show");
-    } else {
-        console.log("Element with ID 'showAlert' not found.")
-    }
-};
 
-// function loadPage(page) {
-//     fetch(page)
-//         .then(Response => Response.text())
-//         .then(data => {
-//             document.getElementById("content").innerHTML = data;
-//         })
-//         .catch(error => console.log('Error loading page:', error));
-// }
-
+function loadPage(page) {
+    fetch(page)
+        .then(Response => Response.text())
+        .then(data => {
+            document.getElementById("content").innerHTML = data;
+        })
+        .catch(error => console.log('Error loading page:', error));
+}
 
 
 // Check for existing player ID or create a new one

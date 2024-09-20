@@ -13,7 +13,7 @@
     <div class="alert hide" id="showAlert">
         <span class="rocket-icon">&#128640;</span>
         <span class="msg">Invite link copied!</span>
-        <span class="close-btn" onclick="closeAlert()">
+        <span class="close-btn" id="closeAlert">
             <span class="close-alert">&#128711;</span>
         </span>
     </div>
@@ -50,7 +50,7 @@
                 </div>
             </button>
 
-            <button class="invite-btn" onclick="openAlert()">
+            <button class="invite-btn" id="openAlert">
                 <p>Copy invite link</p><span><img src="/imgs/clipboard.svg" alt="copy"></span>
             </button>
         </div>
@@ -62,7 +62,8 @@
         </div>
     </div>
 
-    <script src="/backend.js"></script>
+    <script type="module" src="/backend.js">
+    </script>
 </body>
 
 </html>

@@ -36,7 +36,29 @@
         </div>
     </div>
 
-    <script type="module" src="/backend.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js'
+
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js'
+
+        import { getAuth } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js'
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js'
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyASfQQcM4LARaZi4A9wnEmdDxCbADxAtI4",
+            authDomain: "overloard-space-invaders.firebaseapp.com",
+            databaseURL: "https://overloard-space-invaders-default-rtdb.firebaseio.com",
+            projectId: "overloard-space-invaders",
+            storageBucket: "overloard-space-invaders.appspot.com",
+            messagingSenderId: "909242986807",
+            appId: "1:909242986807:web:511ad9ba4c59f8f099aab2",
+            measurementId: "G-D8413SC6PK"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+    </script>
+    <script src="/backend.js"></script>
 </body>
 
 </html>
