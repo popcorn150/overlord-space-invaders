@@ -222,8 +222,8 @@ p {
 /** Media query */
 @media (max-width: 576px) {
     #game-board {
-        width: 450px;
-        margin: 5em;
+        width: 400px;
+        margin: 2em;
     }
 
     .tabs {
