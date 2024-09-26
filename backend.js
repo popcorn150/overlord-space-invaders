@@ -98,7 +98,6 @@ function update() {
     //draw aliens
     for (let i = 0; i < alienArray.length; i++) {
         let alien = alienArray[i];
-        let mainTab = document.getElementById("mainTab");
         if (alien.alive) {
             alien.x += alienVelocityX;
 
@@ -118,7 +117,6 @@ function update() {
 
             if (alien.y >= hero.y) {
                 gameOver = true;
-                mainTab.classList.remove("mainTab");
             }
         }
     }
